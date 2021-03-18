@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'hello_world.apps.HelloWorldConfig', #new application!
     'pages.apps.PagesConfig', #new application!
     'quotes.apps.QuotesConfig', #new application!
+    'mini_fb.apps.ProfileConfig', #new application!
+
 
 
 ]
