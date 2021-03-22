@@ -17,3 +17,4 @@ class Profile(models.Model):
         '''Return a string representation of the name and city'''
 
         return f'{self.first_name} {self.last_name} - {self.city}'
+        
