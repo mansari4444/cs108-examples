@@ -6,14 +6,30 @@
 
 
     
+    <ul style="list-style-type:none;">
+        <li style="text-align:center"><h2>{{single_profile.first_name}} {{single_profile.last_name}}</h2></li>
+        <li><img src="{{single_profile.image_url}}" style="max-width: 400;"></li>
+        <li>{{single_profile.email_address}}</li>
+        <li>{{single_profile.city}}</li>
+    </ul><br>
+
+    
+    <h1>Status message</h1>
+    <table>
     <tr>
-        <td style="text-align:center">{{single_profile.first_name}} {{single_profile.last_name}}</td>
-        <td style="text-align:center">{{single_profile.city}}</td>
-        <td><img src="{{single_profile.image_url}}" style="max-width: 100;"></td>
+        <h3><th>Time Stamp</th></h3>
+        <h3><th>Messages</th></h3>
+    </tr>
+
+    {% for status_message in single_profile.get_status_messages %}
+    
+    <tr>
+        <td style="text-align:center">{{status_message.timestamp}}</td>
+        <td style="text-align:center">{{status_message.message}}</td>
     </tr>
     
-    
-
+    {% endfor %}
+    </table>
 {% endblock %}
 
     
