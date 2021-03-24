@@ -1,11 +1,9 @@
 <!-- mini_fb/show_profile_page.html-->
 {% extends 'mini_fb/base.html' %}
 
-
 {% block content %}
+<h4><a href="{% url 'update_profile' single_profile.pk %}">Update this Profile</a></h4>
 
-
-    
     <ul style="list-style-type:none;">
         <li style="text-align:center"><h2>{{single_profile.first_name}} {{single_profile.last_name}}</h2></li>
         <li><img src="{{single_profile.image_url}}" style="max-width: 400;"></li>

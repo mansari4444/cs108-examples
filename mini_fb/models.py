@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse 
 from django.utils import timezone
 
 # Create your models here.
@@ -23,6 +24,12 @@ class Profile(models.Model):
         '''Return a string representation of the name and city'''
 
         return f'{self.first_name} {self.last_name} - {self.city}'
+    
+    def get_absolute_url(self):
+        '''Provide a URL to show this object'''
+
+        return reverse('show_profile_page', kwargs={'pk':self.pk})
+
 
 class StatusMessage(models.Model):
     '''Data attributes of facebook status message'''
