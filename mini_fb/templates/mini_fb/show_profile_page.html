@@ -26,8 +26,36 @@
         <td style="text-align:center">{{status_message.message}}</td>
     </tr>
     
+          
+{% endfor %}
+</table>
+
+<h1>Create a new status message</h1>
+
+<form method="POST" action="{% url 'post_status_message' single_profile.pk %}"><!-- HTTP Post to send data to the server-->
+    {% csrf_token %}
+    <!-- display the form context variable-->
+    <!-- {{form}} -->
+
+    <!-- {{form.as_p}} paragraph style formatting -->
+    <table>
+
+    
+    {% for field in create_status_form %}
+    <tr>
+        <td>{{field.name}}</td>
+        <td>{{field}}</td>
+    </tr>
+    
     {% endfor %}
-    </table>
+    <tr>
+        <td></td> <!-- empty on purpose for formatting-->
+        <td><input type="submit" value="Share"></td>
+    </tr>
+        
+    </form>
+</table>
+
 {% endblock %}
 
     
