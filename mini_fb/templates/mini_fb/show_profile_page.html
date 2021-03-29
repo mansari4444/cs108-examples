@@ -24,6 +24,8 @@
     <tr>
         <td style="text-align:center">{{status_message.timestamp}}</td>
         <td style="text-align:center">{{status_message.message}}</td>
+        <td><a href="{% url 'delete_post_status_message' profile_pk=single_profile.pk status_pk=status_message.pk %}">Delete</a>
+        </td>
         <td>{% if status_message.image %}
         <img src='{{status_message.image.url}}' style='max-width: 600;'>
         {% endif %}</td>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import *
 from django.urls import reverse
-from .models import Profile
+from .models import Profile, StatusMessage
 from .forms import *
 from django import forms
 import random
@@ -41,6 +41,47 @@ class UpdateProfileView(UpdateView):
     model = Profile # which model to create
     form_class = UpdateProfileForm
     template_name = "mini_fb/update_profile_form.html"
+
+class DeleteStatusMessageView(DeleteView):
+    '''Delete a quote object and store it in the database.'''
+
+    model = Profile # which model to create
+    template_name = "mini_fb/delete_status_form.html"
+    queryset = Profile.objects.all()
+
+    def get_context_data(self, **kwargs):
+        '''Return the context data (a dictionary) to be used in the template.'''
+        context = super(DeleteStatusMessageView, self).get_context_data(**kwargs)
+        st_msg = StatusMessage.objects.get(pk=self.kwargs['status_pk'])
+        context['st_msg'] = st_msg
+       
+        return context
+    
+    def get_object(self):
+        '''Return the StatusMessage object that should be deleted'''
+        # read the URL data values into variables
+        profile_pk = self.kwargs['profile_pk']
+        status_pk = self.kwargs['status_pk']
+
+        status= StatusMessage.objects.filter(pk = status_pk, profile=profile_pk)
+        
+        return status
+        # find the StatusMessage object, and return it
+
+    def get_success_url(self):
+            '''Return a the URL to which we should directed after the delete'''
+
+            # get the pk for this quote
+            profile_pk = self.kwargs['profile_pk']
+            # pk = self.kwargs.get('pk')
+            post_status = Profile.objects.filter(pk=profile_pk).first() # get one object from Queryset
+
+
+            # find the person associated with the quote
+            # show_profile_page = post_status.single_profile
+
+            return reverse('show_profile_page', kwargs={'pk': post_status.pk})
+
 
 def post_status_message(request, pk):
     '''
