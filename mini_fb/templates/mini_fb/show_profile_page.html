@@ -24,29 +24,34 @@
     <tr>
         <td style="text-align:center">{{status_message.timestamp}}</td>
         <td style="text-align:center">{{status_message.message}}</td>
+        <td>{% if status_message.image %}
+        <img src='{{status_message.image.url}}' style='max-width: 600;'>
+        {% endif %}</td>
     </tr>
     
           
 {% endfor %}
+
+
+
 </table>
+
 
 <h1>Create a new status message</h1>
 
-<form method="POST" action="{% url 'post_status_message' single_profile.pk %}"><!-- HTTP Post to send data to the server-->
+<form method="POST" action="{% url 'post_status_message' single_profile.pk %}" enctype="multipart/form-data"><!-- HTTP Post to send data to the server-->
     {% csrf_token %}
     <!-- display the form context variable-->
     <!-- {{form}} -->
 
     <!-- {{form.as_p}} paragraph style formatting -->
     <table>
-
-    
     {% for field in create_status_form %}
     <tr>
         <td>{{field.name}}</td>
         <td>{{field}}</td>
     </tr>
-    
+
     {% endfor %}
     <tr>
         <td></td> <!-- empty on purpose for formatting-->
