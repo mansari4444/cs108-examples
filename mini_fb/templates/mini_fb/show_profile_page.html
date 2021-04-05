@@ -11,7 +11,7 @@
         <li>{{single_profile.city}}</li>
     </ul><br>
 
-    
+
     <h1>Status message</h1>
     <table>
     <tr>
@@ -39,6 +39,8 @@
 </table>
 
 
+
+
 <h1>Create a new status message</h1>
 
 <form method="POST" action="{% url 'post_status_message' single_profile.pk %}" enctype="multipart/form-data"><!-- HTTP Post to send data to the server-->
@@ -63,6 +65,21 @@
     </form>
 </table>
 
+
+
+<h2>Friends</h2>
+<table>
+<tr>
+    <h3><th>Image</th></h3>
+    <h3><th>Name</th></h3>
+    <h3><th>Profile</th></h3>
+</tr>
+{% if single_profile.get_friends %}
+{{single_profile.get_friends}}
+{% else %}
+{{single_profile.first_name}} doesn't have any friends.
+{% endif %}
+</table>
 {% endblock %}
 
     
