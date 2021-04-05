@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import *
 from django.urls import reverse
-from .models import Profile, StatusMessage
+from .models import *
 from .forms import *
 from django import forms
 import random
@@ -110,10 +110,17 @@ def post_status_message(request, pk):
             # now commit to database
             status_message.save()
 
+
     # redirect the user to the show_profile_page view
     url = reverse('show_profile_page', kwargs={'pk': pk})
     return redirect(url)
 
-    
+
+class ShowNewsFeedView(DetailView):
+    '''Shows NewsFeed for one profile.'''
+
+    model = Profile
+    template_name = "mini_fb/show_news_feed.html"
+    context_object_name = "profile"
 
 

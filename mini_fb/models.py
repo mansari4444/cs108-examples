@@ -36,6 +36,21 @@ class Profile(models.Model):
 
         return Profile.objects.filter(friends=self.pk)
 
+    def get_news_feed(self):
+        '''Obtain and return news feed items.'''
+
+        news = StatusMessage.objects.all().order_by("-timestamp")
+
+        friends = self.get_friends()
+
+        friends_news = news.filter(profile__in=friends)
+
+        self_news = news.filter(profile=self.pk)
+
+        total = self_news | friends_news
+        
+        return total
+
 
 class StatusMessage(models.Model):
     '''Data attributes of facebook status message'''
@@ -49,4 +64,5 @@ class StatusMessage(models.Model):
         '''Return a string representation of the StatusMessage'''
 
         return f'{self.timestamp}  {self.message}'
+
         

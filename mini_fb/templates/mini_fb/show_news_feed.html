@@ -1,0 +1,32 @@
+<!-- mini_fb/show_news_feed.html-->
+
+<h4><a href="{% url 'show_profile_page' profile.pk %}">Back to {{profile.first_name}}'s profile page</a></h4>
+
+
+<h1>{{profile.first_name}}'s News Feed</h1>
+    <table>
+    <tr>
+        <h3><th>Time Stamp</th></h3>
+        <h3><th>Messages</th></h3>
+    </tr>
+
+    {% for status_message in profile.get_news_feed %}
+    
+    <tr>
+        <td style="text-align:center">{{status_message.profile.first_name}} {{status_message.profile.last_name}}</td>
+        <td style="text-align:center">{{status_message.timestamp}}</td>
+        <td style="text-align:center">{{status_message.message}}</td>
+        <td>{% if status_message.image %}
+        <img src='{{status_message.image.url}}' style='max-width: 600;'>
+        {% endif %}</td>
+    </tr>
+    
+          
+{% endfor %}
+
+
+
+    </table>
+
+
+

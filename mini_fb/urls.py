@@ -10,5 +10,7 @@ urlpatterns = [
     path('profile/<int:pk>/update', UpdateProfileView.as_view(), name="update_profile"),
     path('profile/<int:profile_pk>/delete_status/<int:status_pk>', DeleteStatusMessageView.as_view(), name="delete_post_status_message"),
     path('create_profile', CreateProfileView.as_view(), name="create_profile"),
+    path('profile/<int:pk>/news_feed', ShowNewsFeedView.as_view(), name="show_news_feed"),
+
 
 ]
