@@ -29,7 +29,7 @@
         <td><a href="{% url 'delete_post_status_message' profile_pk=single_profile.pk status_pk=status_message.pk %}">Delete</a>
         </td>
         <td>{% if status_message.image %}
-        <img src='{{status_message.image.url}}' style='max-width: 600;'>
+        <img src='{{status_message.image.url}}' style='max-width: 400;'>
         {% endif %}</td>
     </tr>
     
@@ -71,17 +71,35 @@
 
 <h2>Friends</h2>
 <table>
+
+{% if single_profile.get_friends %}
+
+{% for friends in single_profile.get_friends %}
+
 <tr>
     <h3><th>Image</th></h3>
     <h3><th>Name</th></h3>
     <h3><th>Profile</th></h3>
 </tr>
-{% if single_profile.get_friends %}
-{{single_profile.get_friends}}
+
+<tr>
+    <td>
+        <img src='{{friends.image_url}}' style='max-width: 150;'>
+        </td>
+    <td>{{friends.first_name}} {{friends.last_name}}</td>
+    <td><a href="{% url 'show_profile_page' friends.pk %}">{{friends.first_name}}'s profile</a></td>
+</tr>
+{% endfor %}
+
 {% else %}
+
 {{single_profile.first_name}} doesn't have any friends.
+
 {% endif %}
+
+
 </table>
+
 {% endblock %}
 
     
