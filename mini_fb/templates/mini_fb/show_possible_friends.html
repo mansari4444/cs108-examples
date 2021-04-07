@@ -1,0 +1,30 @@
+<!-- mini_fb/show_possible_friends.html-->
+
+<h4><a href="{% url 'show_profile_page' profile.pk %}">Back to {{profile.first_name}}'s profile page</a></h4>
+
+<h1>Friend Suggestions for {{profile.first_name}}</h1>
+
+    <table>
+    
+       
+
+    {% for friend in profile.get_friend_suggestions %}
+    
+    
+    <tr>
+        <td>{% if friend.image_url %}
+            <img src='{{friend.image_url}}' style='max-width: 300;'>
+            {% endif %}</td>
+        <td style="text-align:center">{{friend.first_name}} {{friend.last_name}}</td>
+         <td></td> <!-- empty on purpose for formatting-->
+         <td><form method="GET" action="{% url 'add_friend' profile_pk=profile.pk friend_pk=friend.pk %}">
+         <input type="submit" value="Add Friend">
+        </form></td>
+    </tr>
+    
+          
+{% endfor %}
+
+
+
+    </table>

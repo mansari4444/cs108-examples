@@ -48,10 +48,16 @@ class Profile(models.Model):
         self_news = news.filter(profile=self.pk)
 
         total = self_news | friends_news
-        
+
         return total
 
+    def get_friend_suggestions(self):
+        '''Potential friends that can be added'''
 
+        possible_friends = friend_suggestions = Profile.objects.exclude(pk__in=self.get_friends()).exclude(pk=self.pk)
+
+        return possible_friends
+        
 class StatusMessage(models.Model):
     '''Data attributes of facebook status message'''
 

@@ -4,6 +4,8 @@
 {% block content %}
 <h4><a href="{% url 'update_profile' single_profile.pk %}">Update this Profile</a></h4>
 <h4><a href="{% url 'show_news_feed' single_profile.pk %}">Show {{single_profile.first_name}}'s news feed</a></h4>
+<h4><a href="{% url 'show_possible_friends' single_profile.pk %}">Find Friends</a></h4>
+
 
 
     <ul style="list-style-type:none;">

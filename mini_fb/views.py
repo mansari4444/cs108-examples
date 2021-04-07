@@ -123,4 +123,33 @@ class ShowNewsFeedView(DetailView):
     template_name = "mini_fb/show_news_feed.html"
     context_object_name = "profile"
 
+class ShowPossibleFriendsView(DetailView):
+    '''Shows possible friends to add for a profile.'''
+
+    model = Profile
+    template_name = "mini_fb/show_possible_friends.html"
+    context_object = "profile"
+
+def add_friend(request, profile_pk, friend_pk):
+    '''Processes the add friends request.'''
+
+   
+    first_profile = Profile.objects.get(pk=profile_pk)
+
+    second_profile = Profile.objects.get(pk=friend_pk)
+
+    first_profile.friends.add(second_profile)
+
+    first_profile.save()
+
+    url = reverse('show_profile_page', kwargs={'pk': profile_pk})
+
+    return redirect(url)
+
+
+    
+
+
+
+
 
