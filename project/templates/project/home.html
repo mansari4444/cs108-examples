@@ -1,0 +1,21 @@
+<!--project/home.html-->
+
+<h1>Showing available boats and areas they service</h1>
+
+
+<!-- display the context data -->
+
+
+<!-- create a loop to display the boats-->
+<ul>
+{% for boat in boats %}
+
+<li>{{boat.make}} fits {{boat.capacity}} people excluding the crew - {{boat.location}}<br>
+    <img src="{{boat.image_url}}" style="max-width: 400;"
+
+
+</li>
+
+
+{% endfor %}
+</ul>

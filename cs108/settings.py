@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig', #new application!
     'quotes.apps.QuotesConfig', #new application!
     'mini_fb.apps.ProfileConfig', #new application!
+    'project.apps.ProjectConfig', #new application!
+
 
 
 

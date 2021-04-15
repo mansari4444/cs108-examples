@@ -24,6 +24,8 @@ urlpatterns = [
     path('pages/', include('pages.urls')), ##new! link in URLS from our app
     path('quotes/', include('quotes.urls')), ##new! link in URLS from our app
     path('mini_fb/', include('mini_fb.urls')), ##new! link in URLS from our app
+    path('project/', include('project.urls')), ##new! link in URLS from our app
+
 
 
 
