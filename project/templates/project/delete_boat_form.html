@@ -1,0 +1,28 @@
+<!-- project/delete_boat_form.html -->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+<body style="background-color:lavenderblush;">
+<center>
+<h3>Are you sure you want to delete this boat and location?</h3>
+
+<h4>{{boat}}</h4>
+
+<img src="{{boat.image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand">
+<p>
+
+</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type='submit' name="yes" value="yes">
+</form>
+
+<form method='GET' action="{% url 'boat' boat.pk %}">
+    {% csrf_token %}
+    <input type='submit' name="no" value="no">
+</form>
+
+</body>
+</center>

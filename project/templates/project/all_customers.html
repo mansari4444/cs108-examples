@@ -1,0 +1,32 @@
+<!--project/all_customers.html-->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+<center>
+<h4><a href="{% url 'home_page' %}">Home</a></h4>
+<h4><a href="{% url 'new_customer' %}">New customer</a></h4>
+
+<body style="background-color:lavenderblush;">
+<ul>
+    {% for customer in all_customers %}
+    
+    <td style="text-align:center"><a href="{% url 'customer' customer.pk %}">Link to customer</a></td>
+    <li>Customer: {{customer.first_name}} {{customer.last_name}} <br>
+
+
+        <br>Address: {{customer.address}}  <br>
+         Email: {{customer.email}}<br> 
+
+        <br> Date of birth: {{customer.date_of_birth}} 
+    
+    
+    </li>
+    
+    
+    <br>
+    
+    {% endfor %}
+    </ul>
+</body>
+</center>

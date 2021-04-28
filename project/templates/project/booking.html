@@ -1,0 +1,41 @@
+<!--project/booking.html-->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+<center>
+<h4><a href="{% url 'update_booking' booking.pk %}">Update this Booking</a></h4>
+<h4><a href="{% url 'all_bookings' %}">All bookings</a></h4>
+<h4><a href="{% url 'home_page' %}">Home</a></h4>
+<h4><a href="{% url 'delete_booking' booking.pk %}">Delete Booking</a></h4>
+
+
+<body style="background-color:lavenderblush;">
+
+
+
+    <h1>Customer: {{booking.customer}}</h1>
+    
+    <table>
+        <tr>
+        <td>Boat: {{booking.boat}}</td>
+    </tr>
+    <tr><td><img src="{{booking.boat.image_url}}" style="max-width: 400;"</td></tr>
+        <br>
+        
+        <tr><td>Guide: {{booking.guide}}
+        </td>
+        <tr><td><img src="{{booking.guide.image_url}}" style="max-width: 400;"></td></tr><br>
+        </tr>
+        <tr><td>Booking date: {{booking.date_of_booking}}</td>
+        </tr>
+
+        <tr> 
+        <td>Total Invoice: ${{booking.total_price}}</td>
+    </tr>
+</table>
+
+</body> 
+</center>   
+    
+

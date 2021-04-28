@@ -1,0 +1,37 @@
+<!--project/guide.html-->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+<body style="background-color:lavenderblush;">
+
+<center>
+
+<h4><a href="{% url 'home_page' %}">Home</a></h4>
+<h4><a href="{% url 'all_guides' %}">All Guides</a></h4>
+<h4><a href="{% url 'delete_guide' guide.pk %}">Delete Guide</a></h4>
+
+
+
+    <h1>{{guide.first_name}} {{guide.last_name}}</h1>
+    
+    <table>
+        <tr>
+        <td>Years of experience: {{guide.years_of_experience}}</td>
+    </tr>
+        <tr><td>D.O.B: {{guide.date_of_birth}}</td>
+        </tr>
+        <tr><td>Email: {{guide.email}}</td>
+        </tr>
+
+        <tr> 
+        <td>Address: {{guide.address}}</td>
+    </tr>
+</table>
+    
+        <img src="{{guide.image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand">
+
+</body>
+</center>
+
+    

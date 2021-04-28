@@ -1,0 +1,22 @@
+<!--project/boat.html-->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+<body style="background-color:lavenderblush;">
+<center>
+
+    
+    <header><a href="{% url 'home_page' %}">Home</a></header>
+<h4><a href="{% url 'delete_boat' boat.pk %}">Delete boat and location</a></h4>
+
+<h1>{{boat.make}}</h1>
+
+Fits {{boat.capacity}} people excluding the crew <br>
+It is available at {{boat.location}}<br>
+    <img src="{{boat.image_url}}" style="max-width: 400;"><br>
+
+Location Description: {{boat.Location_description}}
+<br>Guides that service these trips:
+</body>
+</center>

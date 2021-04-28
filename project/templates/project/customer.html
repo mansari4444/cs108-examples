@@ -1,0 +1,33 @@
+<!--project/customer.html-->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+
+<body style="background-color:lavenderblush;">
+
+<center>
+<h4><a href="{% url 'home_page' %}">Home</a></h4>
+<h4><a href="{% url 'delete_customer' customer.pk %}">Delete Customer Profile</a></h4>
+
+
+
+    <h1>Customer: {{customer.first_name}} {{customer.last_name}}</h1>
+    
+    <table>
+        <tr>
+        <td>Address: {{customer.address}}</td>
+    </tr>
+        <tr><td>Email: {{customer.email}}
+        </td>
+        </tr>
+        <tr><td>Date of Birth: {{customer.date_of_birth}}</td>
+        </tr>
+
+</table>
+
+</body>
+        
+    
+</center>
+

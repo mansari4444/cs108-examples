@@ -1,7 +1,17 @@
 <!--project/home.html-->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+<center>
+<h1 >Showing available boats and areas</h1>
+<h4><a href="{% url 'all_bookings' %}">All bookings</a></h4>
+<h4><a href="{% url 'all_customers' %}">All customers</a></h4>
+<h4><a href="{% url 'all_guides' %}">All guides</a></h4>
+<h4><a href="{% url 'new_boat' %}">Add new boat and location</a></h4>
 
-<h1>Showing available boats and areas they service</h1>
-
+</tr>
+<body style="background-color:lavenderblush;">
 
 <!-- display the context data -->
 
@@ -10,12 +20,21 @@
 <ul>
 {% for boat in boats %}
 
+
 <li>{{boat.make}} fits {{boat.capacity}} people excluding the crew - {{boat.location}}<br>
-    <img src="{{boat.image_url}}" style="max-width: 400;"
+    <td style="text-align:center"><a href="{% url 'boat' boat.pk %}"><img src="{{boat.image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand"></a>
+    
 
 
 </li>
 
+<li>
+   Description: {{boat.Location_description}} 
+</li>
+<br>
 
 {% endfor %}
 </ul>
+</center>
+</body>
+

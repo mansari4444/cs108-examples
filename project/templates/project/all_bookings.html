@@ -1,0 +1,36 @@
+<!--project/all_bookings.html-->
+<head>
+    <title>Scuba Diving</title>
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+</head>
+<center>
+<h4><a href="{% url 'home_page' %}">Home</a></h4>
+<h4><a href="{% url 'create_booking' %}">Create Booking</a></h4>
+
+<body style="background-color:lavenderblush;">
+<ul>
+    {% for booking in all_bookings %}
+    
+    <td style="text-align:center"><a href="{% url 'booking' booking.pk %}">Link to booking</a></td>
+
+    <li>Boat: {{booking.boat}} <br>
+        <img src="{{booking.boat.image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand"> <br>
+
+        <br>Customer: {{booking.customer}}  <br>
+         Guide: {{booking.guide}}<br> 
+        <img src="{{booking.guide.image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand"><br>
+
+        <br> Date of booking: {{booking.date_of_booking}} 
+        <br> Total Invoice: ${{booking.total_price}}<br>
+        
+    
+    
+    </li>
+    
+    
+    <br>
+    
+    {% endfor %}
+    </ul>
+</body>
+</center>
