@@ -13,9 +13,9 @@ class Boat(models.Model):
     capacity = models.IntegerField(blank=False)
     price_per_person = models.IntegerField(blank=False)
     location = models.TextField(blank=True)
-    image_url = models.URLField(blank=True)
+    image_url = models.URLField(blank=True) # a location of the picture of how the boat looks like
     Location_description = models.TextField(blank=True)
-    location_image_url = models.URLField(blank=True)
+    location_image_url = models.URLField(blank=True) # a link to an image of the location the diving will happen at
     
     def __str__(self):
         '''Return a string representation of the make, capacity, and location'''
@@ -76,11 +76,11 @@ class Guide(models.Model):
 class Booking(models.Model):
     '''Entails the booking of a customer.'''
     # data attributes:
-    boat = models.ForeignKey(Boat, on_delete=models.CASCADE, null=True, blank=True)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True)
-    guide = models.ForeignKey(Guide, on_delete=models.CASCADE, null=True, blank=True)
-    date_of_booking = models.DateField(blank=True, null=True)
-    total_price = models.IntegerField(blank=False, null=True)
+    boat = models.ForeignKey(Boat, on_delete=models.CASCADE, null=True, blank=True) # this links booking to Boat class using a foreign key it is set to null=true to not allow errors to come up if not filled in
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True) # this links booking to Customer class using a foreign key it is set to null=true to not allow errors to come up if not filled in
+    guide = models.ForeignKey(Guide, on_delete=models.CASCADE, null=True, blank=True) # this links booking to Guide class using a foreign key it is set to null=true to not allow errors to come up if not filled in
+    date_of_booking = models.DateField(blank=True, null=True) # attribute of Booking and uses a DateField to be able to format dates inputted
+   
 
     def __str__(self):
         '''Return a string representation of the make, capacity, and location'''
