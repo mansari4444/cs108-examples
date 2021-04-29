@@ -21,6 +21,10 @@ urlpatterns = [
     path('guide/<int:pk>/delete', DeleteGuideView.as_view(), name="delete_guide"),
     path('new_boat', NewBoatView.as_view(), name="new_boat"),
     path('boat/<int:pk>/delete', DeleteBoatView.as_view(), name="delete_boat"),
+    path('guide/<int:pk>/update', UpdateGuideView.as_view(), name="update_guide"),
+    path('boat/<int:pk>/update', UpdateBoatView.as_view(), name="update_boat"),
+
+
 
 
 

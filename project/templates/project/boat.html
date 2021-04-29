@@ -6,10 +6,15 @@
 <body style="background-color:lavenderblush;">
 <center>
 
+<div class='container'>
+    <a href="{% url 'home_page' %}">| Home |</a>
+    <a href="{% url 'update_boat' boat.pk %}">Update boat and location information |</a>
+    <a href="{% url 'delete_boat' boat.pk %}">Delete boat and location |</a>
     
-    <header><a href="{% url 'home_page' %}">Home</a></header>
-<h4><a href="{% url 'delete_boat' boat.pk %}">Delete boat and location</a></h4>
-
+</div>
+    
+    
+  
 <h1>{{boat.make}}</h1>
 
 Fits {{boat.capacity}} people excluding the crew <br>
@@ -17,6 +22,10 @@ It is available at {{boat.location}}<br>
     <img src="{{boat.image_url}}" style="max-width: 400;"><br>
 
 Location Description: {{boat.Location_description}}
-<br>Guides that service these trips:
+
+Price per person: ${{boat.price_per_person}}
+
+<br><td style="text-align:center"><img src="{{boat.location_image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand"></a><br>
+
 </body>
 </center>

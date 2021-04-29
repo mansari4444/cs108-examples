@@ -7,8 +7,12 @@
 <body style="background-color:lavenderblush;">
 
 <center>
-<h4><a href="{% url 'home_page' %}">Home</a></h4>
-<h4><a href="{% url 'delete_customer' customer.pk %}">Delete Customer Profile</a></h4>
+
+<div class='container'>
+    <a href="{% url 'home_page' %}">| Home |</a>
+    <a href="{% url 'delete_customer' customer.pk %}">Delete Customer Profile |</a>
+        
+</div>
 
 
 

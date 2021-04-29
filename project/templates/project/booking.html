@@ -4,11 +4,13 @@
     <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
 </head>
 <center>
-<h4><a href="{% url 'update_booking' booking.pk %}">Update this Booking</a></h4>
-<h4><a href="{% url 'all_bookings' %}">All bookings</a></h4>
-<h4><a href="{% url 'home_page' %}">Home</a></h4>
-<h4><a href="{% url 'delete_booking' booking.pk %}">Delete Booking</a></h4>
 
+<div class='container'>
+    <a href="{% url 'update_booking' booking.pk %}">| Update this Booking |</a>
+    <a href="{% url 'all_bookings' %}">All bookings |</a>
+    <a href="{% url 'home_page' %}">Home |</a>
+    <a href="{% url 'delete_booking' booking.pk %}">Delete Booking |</a>
+</div>
 
 <body style="background-color:lavenderblush;">
 
@@ -31,7 +33,7 @@
         </tr>
 
         <tr> 
-        <td>Total Invoice: ${{booking.total_price}}</td>
+        <td>Total Invoice: ${{booking.boat.price_per_person}}</td>
     </tr>
 </table>
 

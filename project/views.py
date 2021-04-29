@@ -32,6 +32,7 @@ class BookingPageView(DetailView):
     model = Booking
     template_name = "project/booking.html"
     context_object_name = "booking"
+    
 
 class CreateBookingView(CreateView):
     '''Create a new booking object and store it in the database.'''
@@ -130,6 +131,22 @@ class DeleteBoatView(DeleteView):
     def get_success_url(self):
         '''Gives the URL for all bookings once a delete has happened.'''
         return reverse('home_page')
+
+class UpdateGuideView(UpdateView):
+    '''Update a guide object and store it in the database.'''
+
+    model = Guide # which model to create
+    form_class = UpdateGuideForm
+    template_name = "project/update_guide_form.html"
+
+class UpdateBoatView(UpdateView):
+    '''Update a guide object and store it in the database.'''
+
+    model = Boat # which model to create
+    form_class = UpdateBoatForm
+    template_name = "project/update_boat_form.html"
+
+
 
 
 

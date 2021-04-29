@@ -7,9 +7,12 @@
 
 <center>
 
-<h4><a href="{% url 'home_page' %}">Home</a></h4>
-<h4><a href="{% url 'all_guides' %}">All Guides</a></h4>
-<h4><a href="{% url 'delete_guide' guide.pk %}">Delete Guide</a></h4>
+<div class='container'>
+    <a href="{% url 'home_page' %}">| Home |</a>
+    <a href="{% url 'all_guides' %}">All Guides |</a>
+    <a href="{% url 'update_guide' guide.pk %}">Update this guide's profile |</a>
+    <a href="{% url 'delete_guide' guide.pk %}">Delete Guide |</a>
+</div>
 
 
 

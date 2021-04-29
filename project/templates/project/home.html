@@ -5,10 +5,13 @@
 </head>
 <center>
 <h1 >Showing available boats and areas</h1>
-<h4><a href="{% url 'all_bookings' %}">All bookings</a></h4>
-<h4><a href="{% url 'all_customers' %}">All customers</a></h4>
-<h4><a href="{% url 'all_guides' %}">All guides</a></h4>
-<h4><a href="{% url 'new_boat' %}">Add new boat and location</a></h4>
+
+<div class='container'>
+    <a href="{% url 'all_bookings' %}">| All bookings |</a>
+    <a href="{% url 'all_customers' %}">All customers |</a>
+    <a href="{% url 'all_guides' %}">All guides |</a>
+    <a href="{% url 'new_boat' %}">Add new boat and location |</a>
+</div>
 
 </tr>
 <body style="background-color:lavenderblush;">
@@ -21,16 +24,19 @@
 {% for boat in boats %}
 
 
-<li>{{boat.make}} fits {{boat.capacity}} people excluding the crew - {{boat.location}}<br>
-    <td style="text-align:center"><a href="{% url 'boat' boat.pk %}"><img src="{{boat.image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand"></a>
+<br>{{boat.make}} fits {{boat.capacity}} people excluding the crew - {{boat.location}}<br>
+    <br><td style="text-align:center"><a href="{% url 'boat' boat.pk %}"><img src="{{boat.image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand"></a><br>
     
 
 
-</li>
 
-<li>
-   Description: {{boat.Location_description}} 
-</li>
+
+
+   Description: {{boat.Location_description}}<br>
+
+   <br><td style="text-align:center"><a href="{% url 'boat' boat.pk %}"><img src="{{boat.location_image_url}}" style="border:1px solid black;" src="//www.html.am/images/image-codes/milford_sound_t.jpg" width="300" height="200" alt="Photo of Milford Sound in New Zealand"></a><br>
+
+
 <br>
 
 {% endfor %}

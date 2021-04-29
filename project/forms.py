@@ -8,12 +8,11 @@ class CreateBookingForm(forms.ModelForm):
 
     
     date_of_booking = forms.DateField()
-    total_price = forms.IntegerField()
 
     class Meta:
         '''additional data about this form'''
         model = Booking #which model to create
-        fields = ['boat','customer', 'guide','date_of_booking', 'total_price']# which fields to create
+        fields = ['boat','customer', 'guide','date_of_booking']# which fields to create
 
 class UpdateBookingForm(forms.ModelForm):
     '''A form to update booking object.'''
@@ -21,7 +20,7 @@ class UpdateBookingForm(forms.ModelForm):
     class Meta:
         '''additional data about this form'''
         model = Booking # which model to create
-        fields = ['boat','customer', 'guide','date_of_booking', 'total_price'] # which fields to create
+        fields = ['boat','customer', 'guide','date_of_booking'] # which fields to create
 
 
 class CreateCustomerForm(forms.ModelForm):
@@ -66,12 +65,31 @@ class CreateBoatForm(forms.ModelForm):
     location = forms.CharField()
     image_url = forms.URLField()
     Location_description = forms.CharField()
+    location_image_url = forms.URLField()
 
     class Meta:
         '''additional data about this form'''
         model = Boat #which model to create
-        fields = ['Boat_identification_number','make', 'capacity','price_per_person', 'location', 'image_url', 'Location_description']# which fields to create
+        fields = ['Boat_identification_number','make', 'capacity','price_per_person', 'location', 'image_url', 'Location_description', 'location_image_url']# which fields to create
 
 
-    
+class UpdateGuideForm(forms.ModelForm):
+    '''A form to update guide object.'''
 
+    class Meta:
+        '''additional data about this form'''
+        model = Guide # which model to create
+        fields = ['first_name','last_name', 'address','email', 'date_of_birth', 'years_of_experience', 'image_url'] # which fields to create
+
+class UpdateBoatForm(forms.ModelForm):
+    '''A form to update boat object.'''
+
+    class Meta:
+        '''additional data about this form'''
+        model = Boat # which model to create
+        fields = ['Boat_identification_number','make', 'capacity','price_per_person', 'location', 'image_url', 'Location_description', 'location_image_url'] # which fields to create
+
+
+
+
+   

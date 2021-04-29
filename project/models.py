@@ -15,6 +15,7 @@ class Boat(models.Model):
     location = models.TextField(blank=True)
     image_url = models.URLField(blank=True)
     Location_description = models.TextField(blank=True)
+    location_image_url = models.URLField(blank=True)
     
     def __str__(self):
         '''Return a string representation of the make, capacity, and location'''
