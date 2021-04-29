@@ -1,18 +1,18 @@
 <!--project/booking.html-->
 <head>
     <title>Scuba Diving</title>
-    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css"><!--this links to the CSS formatting specifically for the font-->
 </head>
-<center>
+<center><!-- usage of a center tag to center all the text and images on the page-->
 
 <div class='container'>
-    <a href="{% url 'update_booking' booking.pk %}">| Update this Booking |</a>
+    <a href="{% url 'update_booking' booking.pk %}">| Update this Booking |</a><!-- use | to give a cleaner look on the page-->
     <a href="{% url 'all_bookings' %}">All bookings |</a>
     <a href="{% url 'home_page' %}">Home |</a>
     <a href="{% url 'delete_booking' booking.pk %}">Delete Booking |</a>
-</div>
+</div><!-- allows the links to be side by side rather then stacked on top of each other-->
 
-<body style="background-color:lavenderblush;">
+<body style="background-color:lavenderblush;"><!-- this formats the background of the page to have a lavender color-->
 
 
 

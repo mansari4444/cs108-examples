@@ -7,7 +7,8 @@ class CreateBookingForm(forms.ModelForm):
     '''A form to create a new booking.'''
 
     
-    date_of_booking = forms.DateField()
+    date_of_booking = forms.DateField() 
+    # ^ allows the customer to only input the date of booking desired the rest of the options are prechosen options such as boat, guide
 
     class Meta:
         '''additional data about this form'''
@@ -31,6 +32,7 @@ class CreateCustomerForm(forms.ModelForm):
     address = forms.CharField()
     email = forms.CharField()
     date_of_birth = forms.DateField()
+    # ^ allows the user to input these fields when creating a new customer
 
     class Meta:
         '''additional data about this form'''
@@ -47,10 +49,12 @@ class CreateGuideForm(forms.ModelForm):
     date_of_birth = forms.DateField()
     years_of_experience = forms.IntegerField()
     image_url = forms.URLField()
+    # ^ allows the user to input these fields when creating a new guide
+
 
     class Meta:
         '''additional data about this form'''
-        model = Guide 
+        model = Guide # which model to create
         fields = ['first_name','last_name', 'address','email', 'date_of_birth', 'years_of_experience', 'image_url']# which fields to create
 
 
@@ -66,6 +70,7 @@ class CreateBoatForm(forms.ModelForm):
     image_url = forms.URLField()
     Location_description = forms.CharField()
     location_image_url = forms.URLField()
+    # ^ allows the user to input these fields when creating a new boat object
 
     class Meta:
         '''additional data about this form'''

@@ -1,18 +1,18 @@
 <!--project/guide.html-->
 <head>
     <title>Scuba Diving</title>
-    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css"><!--this links to the CSS formatting specifically for the font-->
 </head>
-<body style="background-color:lavenderblush;">
+<body style="background-color:lavenderblush;"><!-- this formats the background of the page to have a lavender color-->
 
-<center>
+<center><!-- usage of a center tag to center all the text and images on the page-->
 
 <div class='container'>
-    <a href="{% url 'home_page' %}">| Home |</a>
+    <a href="{% url 'home_page' %}">| Home |</a><!-- use | to give a cleaner look on the page-->
     <a href="{% url 'all_guides' %}">All Guides |</a>
     <a href="{% url 'update_guide' guide.pk %}">Update this guide's profile |</a>
     <a href="{% url 'delete_guide' guide.pk %}">Delete Guide |</a>
-</div>
+</div> <!-- allows the links to be side by side rather then stacked on top of each other-->
 
 
 

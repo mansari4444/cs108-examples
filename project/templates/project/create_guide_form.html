@@ -4,15 +4,13 @@
 <h1>New Guide register below!</h1>
 <head>
     <title>Scuba Diving</title>
-    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cs-people.bu.edu/mansari/css/shine/css/bootstrap.min.css"><!--this links to the CSS formatting specifically for the font-->
 </head>
-<body style="background-color:lavenderblush;">
-<center>
+<body style="background-color:lavenderblush;"><!-- this formats the background of the page to have a lavender color-->
+<center><!-- usage of a center tag to center all the text and images on the page-->
 <form method="POST"><!-- HTTP Post to send data to the server-->
     {% csrf_token %}
-    <!-- display the form context variable-->
-    <!-- {{form}} -->
-
+    
     <!-- {{form.as_p}} paragraph style formatting -->
     <table>
 

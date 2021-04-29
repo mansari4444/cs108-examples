@@ -21,14 +21,17 @@ class Boat(models.Model):
         '''Return a string representation of the make, capacity, and location'''
 
         return f'{self.make} fits {self.capacity} people exlcuding the crew - {self.location}'
+        # returns a string 
     
     def get_absolute_url(self):
         '''Provide a URL to show this object'''
 
         return reverse('boat', kwargs={'pk':self.pk})
+        # provides a return url for the delete function
     
 class Customer(models.Model):
     '''Represents a customer.'''
+    # data attributes:
     first_name = models.TextField(blank=True)
     last_name = models.TextField(blank=True)
     address = models.TextField(blank=True)
@@ -44,9 +47,11 @@ class Customer(models.Model):
         '''Provide a URL to show this object'''
 
         return reverse('customer', kwargs={'pk':self.pk})
+        # provides a return url for the delete function
 
 class Guide(models.Model):
     '''Represents qualified guide for the expedition.'''
+    # data attributes:
     first_name = models.TextField(blank=True)
     last_name = models.TextField(blank=True)
     address = models.TextField(blank=True)
@@ -66,9 +71,11 @@ class Guide(models.Model):
         '''Provide a URL to show this object'''
 
         return reverse('guide', kwargs={'pk':self.pk})
+        # provides a return url for the delete function
 
 class Booking(models.Model):
     '''Entails the booking of a customer.'''
+    # data attributes:
     boat = models.ForeignKey(Boat, on_delete=models.CASCADE, null=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True)
     guide = models.ForeignKey(Guide, on_delete=models.CASCADE, null=True, blank=True)
@@ -84,6 +91,7 @@ class Booking(models.Model):
         '''Provide a URL to show this object'''
 
         return reverse('booking', kwargs={'pk':self.pk})
+        # provides a return url for the delete function
 
 
 
